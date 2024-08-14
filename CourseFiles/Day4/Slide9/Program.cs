@@ -8,7 +8,7 @@ namespace BlobsDemo
     class Program
     {
 
-        private const string blobStorageConnectionString = "DefaultEndpointsProtocol=https;AccountName=storageinnovation;AccountKey=yAj2hFTmEkBaXfRTB20RppibQkQpjqhqt6HJDuE6wC48tn1cK/Shb5YKnfOYnyBQ+G3uZnqx8S/s+AStF7RV5g==;EndpointSuffix=core.windows.net";
+        private const string blobStorageConnectionString = "DefaultEndpointsProtocol=https;AccountName=storageinnovation;AccountKey=[Key];EndpointSuffix=core.windows.net";
         private const string blobContainerName = "containerblobeventhubs";
         static async Task Main()
         {
