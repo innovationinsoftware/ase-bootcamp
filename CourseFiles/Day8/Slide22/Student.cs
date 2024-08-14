@@ -4,11 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace AppInsightsDemo.Models
-
+namespace DomainLayer.Models
 {
-    public class Student
+    public class Student : BaseEntity
     {
         [Key]
         public int Id
@@ -57,5 +55,5 @@ namespace AppInsightsDemo.Models
             set;
         }
     }
-
 }
+
