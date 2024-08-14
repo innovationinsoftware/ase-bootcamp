@@ -1,0 +1,4 @@
+"ConnectionStrings": {
+   "CosmosPostgreSQLConnection": "Server=c-clustercosmosdbinnovationinsoftware123.okqwjajb35g2yl.postgres.cosmos.azure.com;Database=citus;Port=5432;User Id=citus;Password=[Yourpasswordhere];;"
+
+ },
