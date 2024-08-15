@@ -1,0 +1,67 @@
+docker container ls --all
+lists all containers and their respective commands
+
+docker run --rm -it --name MYCONTAINER [IMAGE] bash
+creates a bash session.  you can do many bash commands in there
+
+to format output from docker containers so it doesn't get cut off
+add this to command line
+--format ‘{{ json . }}’ | jq -C
+
+override the entrypoint to be a live shell inside the container 
+
+docker run -i -d --entrypoint=bash [container]
+docker exec -it [container] bash
+
+now you can run bash commands 
+
+docker cp destfile sourcefile
+
+docker logs
+docker logs [container ID]
+docker logs --tail 100 [container ID]
+docker top [container ID]
+
+debuggers that work inside containers 
+
+example
+RUN pip install debugpy 
+ENTRYPOINT ["python", "debugpy", "--listen","0.0.0.0:5678", "--wait-for-client", "-m"]
+
+
+
+
+in visual studio code
+cmd shift d
+debugger
+  add config
+     remote attach 5678
+
+
+click play in visual studio 
+
+
+
+to attach to a process running on a linux .net core docker container 
+
+visual studio
+debug
+attach to process
+connection type docker (linux container)
+  click find..   find your container 
+
+local debugging
+docker client host: local machine 
+
+
+remote. click add.. and enter required connection info
+choose connect
+[can use. ssh to do remote
+sudo apt-get install openssh-server unzip curl]
+
+select a container
+
+
+		To set the target to a remote container running a process via a Docker daemon:
+Specify the daemon address (that is, via TCP, IP, and so on) under Docker host (Optional), and then choose Refresh.
+After connecting to the daemon successfully, select a running container to attach to, and then choose OK.
