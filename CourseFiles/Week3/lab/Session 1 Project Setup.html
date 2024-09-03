@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<!-- saved from url=(0081)file:///C:/Users/ishea/AppData/Local/Temp/crossnote202482-42968-looghv.b0vej.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Session 1 Project Setup</title>
+      
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="./Session 1 Project Setup_files/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h2 id="session-1-single-spa-angular-js-project-setup-60-minutes">Session 1: Single-SPA Angular JS Project Setup (60 minutes) </h2>
+<h3 id="1-environment-setup">1. Environment Setup </h3>
+<h4 id="install-nodejs-and-angular-cli">Install Node.js and Angular CLI </h4>
+<p>To start with, you need to have Node.js and npm installed on your machine. You can download and install Node.js from <a href="https://nodejs.org/">Node.js official website</a>.</p>
+<p>Next, install the Angular CLI globally using npm:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> @angular/cli  
+</code></pre><h4 id="clone-the-single-spa-angularjs-starter">Clone the Single-spa-angularJS Starter </h4>
+<p>Single-SPA provides a starter project to help if you want to update legacy apps that use AngularJS. This serves as a starting point that you can then build on top of using the <a href="https://single-spa.js.org/docs/recommended-setup">Recommended Setup</a></p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">git</span> clone https://github.com/mbarbosasan/single-spa-angularjs-starter.git
+</code></pre><p>If you want to add single-spa to an existing AngularJS project, you can follow instructions on this <a href="https://single-spa.js.org/docs/ecosystem-angularjs">webpage</a>. However, using the starter project will save a lot of time.</p>
+<h3 id="2-create-base-project">2. Create Base Project </h3>
+<h4 id="initialize-a-new-single-spa-root-config">Initialize a New Single-SPA Root Config </h4>
+<p>Rename the starter project directory for your project and navigate into it:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">rename</span> single-spa-angularjs-starter to project-management-tool  
+<span class="token builtin class-name">cd</span> project-management-tool  
+</code></pre><p>Now rename the name of the organisation used in the root-config:</p>
+<ul>
+<li>Open webpack.config.js</li>
+<li>Rename orgName from "my-org" to "projectmgt"</li>
+<li>Rename "@my-org/root-config" to "@projectmgt/root-config" in the package.json file</li>
+<li>Rename all instances of "my-org" to "projectmgt" in index.ejs and microfrontend-layout.html</li>
+</ul>
+<p>Install the dependencies:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">npm</span> <span class="token function">install</span>  
+</code></pre><p>For the purpose of this exercise, we will use Bootstrap for styling. You can add the latest Bootstrap CDN reference in the head of the <code>index.ejs</code> file. Alternatively, you can use a different UI framework and adjust the application layout accordingly.</p>
+<p>The <code>root-config.js</code> file will register and construct the AngularJS micro front-end applications that you will define in the SystemJS import map file in the <code>index.ejs</code> file. The <code>microfrontend-layout.html</code> contains the Single-SPA layout definition for your application. You can learn more about layout definitions <a href="https://single-spa.js.org/docs/layout-definition/">here</a>.</p>
+<p>For additional reading on setting up the root config, refer to the <a href="https://single-spa.js.org/docs/getting-started-overview/">Single-SPA documentation</a>.</p>
+<h4 id="create-angularjs-micro-front-ends">Create AngularJS Micro Front-Ends </h4>
+<p>Navigate back to the main project directory:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>  
+</code></pre><ul>
+<li>Create copies of the angularjs microfrontend folder</li>
+<li>Rename the copies to the names of your AngularJS microfrontends (e.g., "navbar","dashboard", "project", "task", "team")</li>
+<li>Navigate into each microfrontend directory and run <code>npm install</code></li>
+</ul>
+<p>Repeat the above steps for each micro front-end application.</p>
+<h3 id="3-configure-single-spa">3. Configure Single-SPA </h3>
+<h4 id="integrate-angularjs-applications-into-the-single-spa-root-config">Integrate AngularJS Applications into the Single-SPA Root Config </h4>
+<p>Open the <code>root-config/src/index.ejs</code> file and register your micro front-ends using the SystemJS import map. Each micro frontend registration references the webpack bundle located at the address were the frontend is running:</p>
+<pre data-role="codeBlock" data-info="html" class="language-html html"><code>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>systemjs-importmap<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+    <span class="token punctuation">{</span>
+      <span class="token string-property property">"imports"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token string-property property">"@projectmgt/root-config"</span><span class="token operator">:</span> <span class="token string">"//localhost:9000/projectmgt-root-config.js"</span><span class="token punctuation">,</span>
+        <span class="token string-property property">"@projectmgt/navigation"</span><span class="token operator">:</span> <span class="token string">"http://localhost:8080/main.js"</span><span class="token punctuation">,</span>
+        <span class="token string-property property">"@projectmgt/welcome"</span><span class="token operator">:</span> <span class="token string">"http://localhost:8081/main.js"</span><span class="token punctuation">,</span>
+        <span class="token string-property property">"@projectmgt/dashboard"</span><span class="token operator">:</span> <span class="token string">"http://localhost:8082/main.js"</span><span class="token punctuation">,</span>
+        <span class="token string-property property">"@projectmgt/projects"</span><span class="token operator">:</span> <span class="token string">"http://localhost:8083/main.js"</span><span class="token punctuation">,</span>
+        <span class="token string-property property">"@projectmgt/tasks"</span><span class="token operator">:</span> <span class="token string">"http://localhost:8084/main.js"</span><span class="token punctuation">,</span>
+        <span class="token string-property property">"@projectmgt/team"</span><span class="token operator">:</span> <span class="token string">"http://localhost:8085/main.js"</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre><p>For the microfrontends to load correctly, you will have to start them in the order of the ports defined in the import map.<br>
+To learn about import maps and SystemJS in Single-SPA refer to this <a href="https://single-spa.js.org/docs/recommended-setup/#import-maps">page</a><br>
+For more information on application registration, refer to the <a href="https://single-spa.js.org/docs/api#registerapplication">Single-SPA application documentation</a>.</p>
+<h3 id="4-set-up-the-user-interface">4. Set Up the User Interface </h3>
+<h4 id="install-ui-framework">Install UI Framework </h4>
+<p>Make sure you have added bootstrap or referenced the UI libraries of your choice in the index.ejs file of the root project.</p>
+<h4 id="create-navigation-and-application-shell">Create Navigation and Application Shell </h4>
+<p><strong>a.) Update the navbar microfrontend</strong></p>
+<p>Open the navbar directory and create navigation component, create a new file named <code>navbar.component.html</code> and add the following code:</p>
+<pre data-role="codeBlock" data-info="html" class="language-html html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nav</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>navbar navbar-expand-lg navbar-light bg-light<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>  
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>navbar-brand<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Project Management Tool<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>  
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>collapse navbar-collapse<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>  
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>navbar-nav mr-auto<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>  
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>nav-item<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>  
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>nav-link<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/dashboard<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Dashboard<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>  
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>  
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>nav-item<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>  
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>nav-link<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/project<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Projects<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>  
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>  
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>nav-item<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>  
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>nav-link<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/task<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Tasks<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>  
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>  
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>nav-item<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>  
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>nav-link<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/team<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Team<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>  
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>  
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">&gt;</span></span>  
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>  
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>nav</span><span class="token punctuation">&gt;</span></span>    
+</code></pre><p>Create a new file named <code>navbar.component.js</code> and add the following code:</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript javascript"><code><span class="token keyword module keyword-import">import</span> <span class="token imports">navbarTemplate</span> <span class="token keyword module keyword-from">from</span> <span class="token string">"./navigation.component.html"</span><span class="token punctuation">;</span>
+
+angular<span class="token punctuation">.</span><span class="token method function property-access">module</span><span class="token punctuation">(</span><span class="token string">"app"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">component</span><span class="token punctuation">(</span><span class="token string">"navbar"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">template</span><span class="token operator">:</span> navbarTemplate<span class="token punctuation">,</span>
+  <span class="token function-variable function">controller</span><span class="token operator">:</span> <span class="token keyword keyword-function">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-this">this</span><span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">$onInit</span> <span class="token operator">=</span> <span class="token keyword keyword-function">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"Navigation component initialized"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre><p>Update <code>components.all.js</code> to the following:</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript javascript"><code><span class="token keyword module keyword-import">import</span> <span class="token string">"./navigation/navbar.component"</span><span class="token punctuation">;</span>
+</code></pre><p>Update <code>app.module.js</code> to the following:</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript javascript"><code><span class="token keyword module keyword-import">import</span> <span class="token imports">ngRoute</span> <span class="token keyword module keyword-from">from</span> <span class="token string">"angular-route"</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-const">const</span> appAngular <span class="token operator">=</span> angular<span class="token punctuation">.</span><span class="token method function property-access">module</span><span class="token punctuation">(</span><span class="token string">"app"</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">"ngRoute"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword module keyword-export">export</span> <span class="token keyword module keyword-default">default</span> appAngular<span class="token punctuation">;</span>
+</code></pre><p>Update <code>index.js</code> to the following code:</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript javascript"><code><span class="token keyword module keyword-import">import</span> <span class="token imports">singleSpaAngularJS</span> <span class="token keyword module keyword-from">from</span> <span class="token string">"single-spa-angularjs"</span><span class="token punctuation">;</span>
+<span class="token keyword module keyword-import">import</span> <span class="token imports">angular</span> <span class="token keyword module keyword-from">from</span> <span class="token string">"angular"</span><span class="token punctuation">;</span>
+
+<span class="token keyword module keyword-import">import</span> <span class="token string">"./components/components.all"</span><span class="token punctuation">;</span>
+<span class="token keyword module keyword-import">import</span> <span class="token string">"../src/styles.global.css"</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-const">const</span> ngLifecycles <span class="token operator">=</span> <span class="token function">singleSpaAngularJS</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">angular</span><span class="token operator">:</span> angular<span class="token punctuation">,</span>
+  <span class="token literal-property property">mainAngularModule</span><span class="token operator">:</span> <span class="token string">"app"</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">ngRoute</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">preserveGlobal</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">template</span><span class="token operator">:</span> <span class="token string">"&lt;navigation /&gt;"</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword module keyword-export">export</span> <span class="token keyword keyword-const">const</span> bootstrap <span class="token operator">=</span> ngLifecycles<span class="token punctuation">.</span><span class="token property-access">bootstrap</span><span class="token punctuation">;</span>
+<span class="token keyword module keyword-export">export</span> <span class="token keyword keyword-const">const</span> mount <span class="token operator">=</span> ngLifecycles<span class="token punctuation">.</span><span class="token property-access">mount</span><span class="token punctuation">;</span>
+<span class="token keyword module keyword-export">export</span> <span class="token keyword keyword-const">const</span> unmount <span class="token operator">=</span> ngLifecycles<span class="token punctuation">.</span><span class="token property-access">unmount</span><span class="token punctuation">;</span>
+</code></pre><p>**b.) Add navigation to the shell/root-config</p>
+<p>Open the <code>microfrontend-layout.html</code> file and update the code layout definition to the following:</p>
+<pre data-role="codeBlock" data-info="html" class="language-html html"><code>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>main</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nav</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>application</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@projectmgt/navigation<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>application</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>nav</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>route</span> <span class="token attr-name">default</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>application</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@projectmgt/welcome<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>application</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>route</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>main</span><span class="token punctuation">&gt;</span></span>
+</code></pre><p>Include the navigation component in the <code>root-config/src/index.js</code> file:</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript javascript"><code><span class="token keyword module keyword-import">import</span> <span class="token string">'./navbar.component'</span><span class="token punctuation">;</span>  
+</code></pre><h4 id="set-up-mock-api-module">Set Up Mock API Module </h4>
+<p>Create a mock API module to simulate backend API calls. In the <code>root-config/src</code> directory, create a new file named <code>mock-api.js</code> and add the following code:</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript javascript"><code><span class="token keyword keyword-const">const</span> mockApiData <span class="token operator">=</span> <span class="token punctuation">{</span>  
+  <span class="token literal-property property">projects</span><span class="token operator">:</span> <span class="token punctuation">[</span>  
+    <span class="token punctuation">{</span> <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Project Alpha'</span><span class="token punctuation">,</span> <span class="token literal-property property">description</span><span class="token operator">:</span> <span class="token string">'Description for Project Alpha'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>  
+    <span class="token punctuation">{</span> <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Project Beta'</span><span class="token punctuation">,</span> <span class="token literal-property property">description</span><span class="token operator">:</span> <span class="token string">'Description for Project Beta'</span> <span class="token punctuation">}</span>  
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>  
+  <span class="token literal-property property">tasks</span><span class="token operator">:</span> <span class="token punctuation">[</span>  
+    <span class="token punctuation">{</span> <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token literal-property property">projectId</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Task 1'</span><span class="token punctuation">,</span> <span class="token literal-property property">status</span><span class="token operator">:</span> <span class="token string">'In Progress'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>  
+    <span class="token punctuation">{</span> <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token literal-property property">projectId</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Task 2'</span><span class="token punctuation">,</span> <span class="token literal-property property">status</span><span class="token operator">:</span> <span class="token string">'Completed'</span> <span class="token punctuation">}</span>  
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>  
+  <span class="token literal-property property">team</span><span class="token operator">:</span> <span class="token punctuation">[</span>  
+    <span class="token punctuation">{</span> <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'John Doe'</span><span class="token punctuation">,</span> <span class="token literal-property property">role</span><span class="token operator">:</span> <span class="token string">'Developer'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>  
+    <span class="token punctuation">{</span> <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Jane Smith'</span><span class="token punctuation">,</span> <span class="token literal-property property">role</span><span class="token operator">:</span> <span class="token string">'Project Manager'</span> <span class="token punctuation">}</span>  
+  <span class="token punctuation">]</span>  
+<span class="token punctuation">}</span><span class="token punctuation">;</span>  
+   
+<span class="token dom variable">window</span><span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">fetch</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">url</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>  
+  <span class="token keyword control-flow keyword-return">return</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>  
+    <span class="token keyword keyword-let">let</span> data<span class="token punctuation">;</span>  
+    <span class="token keyword control-flow keyword-if">if</span> <span class="token punctuation">(</span>url<span class="token punctuation">.</span><span class="token method function property-access">includes</span><span class="token punctuation">(</span><span class="token string">'/projects'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> data <span class="token operator">=</span> mockApiData<span class="token punctuation">.</span><span class="token property-access">projects</span><span class="token punctuation">;</span>  
+    <span class="token keyword control-flow keyword-else">else</span> <span class="token keyword control-flow keyword-if">if</span> <span class="token punctuation">(</span>url<span class="token punctuation">.</span><span class="token method function property-access">includes</span><span class="token punctuation">(</span><span class="token string">'/tasks'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> data <span class="token operator">=</span> mockApiData<span class="token punctuation">.</span><span class="token property-access">tasks</span><span class="token punctuation">;</span>  
+    <span class="token keyword control-flow keyword-else">else</span> <span class="token keyword control-flow keyword-if">if</span> <span class="token punctuation">(</span>url<span class="token punctuation">.</span><span class="token method function property-access">includes</span><span class="token punctuation">(</span><span class="token string">'/team'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> data <span class="token operator">=</span> mockApiData<span class="token punctuation">.</span><span class="token property-access">team</span><span class="token punctuation">;</span>  
+  
+    <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">{</span>  
+      <span class="token function-variable function">json</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token known-class-name class-name">Promise</span><span class="token punctuation">.</span><span class="token method function property-access">resolve</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>  
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+<span class="token punctuation">}</span><span class="token punctuation">;</span>  
+</code></pre><p>Include the mock API module in the <code>root-config/src/index.js</code> file:</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript javascript"><code><span class="token keyword module keyword-import">import</span> <span class="token string">'./mock-api'</span><span class="token punctuation">;</span>  
+</code></pre><h4 id="build-the-ui-for-each-micro-front-end">Build the UI for Each Micro Front-End </h4>
+<p>For each micro front-end, create basic components to display some sample data. For example, in the <code>dashboard</code> micro front-end, create a new component <code>dashboard.component.js</code>:</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript javascript"><code><span class="token keyword module keyword-import">import</span> <span class="token imports">angular</span> <span class="token keyword module keyword-from">from</span> <span class="token string">'angular'</span><span class="token punctuation">;</span>  
+   
+<span class="token keyword keyword-const">const</span> dashboardModule <span class="token operator">=</span> angular<span class="token punctuation">.</span><span class="token method function property-access">module</span><span class="token punctuation">(</span><span class="token string">'dashboard'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+   
+dashboardModule<span class="token punctuation">.</span><span class="token method function property-access">component</span><span class="token punctuation">(</span><span class="token string">'dashboard'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>  
+  <span class="token literal-property property">template</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">  
+&lt;div class="container mt-4"&gt;  
+  &lt;div class="row"&gt;  
+    &lt;!-- Project Summary Card --&gt;  
+    &lt;div class="col-md-4"&gt;  
+      &lt;div class="card mb-4"&gt;  
+        &lt;div class="card-header"&gt;Project Summary&lt;/div&gt;  
+        &lt;div class="card-body"&gt;  
+          &lt;h5 class="card-title"&gt;Total Projects&lt;/h5&gt;  
+          &lt;p class="card-text display-4"&gt;5&lt;/p&gt;  
+          &lt;a href="/project" class="btn btn-primary"&gt;View Projects&lt;/a&gt;  
+        &lt;/div&gt;  
+      &lt;/div&gt;  
+    &lt;/div&gt;  
+    &lt;!-- Task Summary Card --&gt;  
+    &lt;div class="col-md-4"&gt;  
+      &lt;div class="card mb-4"&gt;  
+        &lt;div class="card-header"&gt;Task Summary&lt;/div&gt;  
+        &lt;div class="card-body"&gt;  
+          &lt;h5 class="card-title"&gt;Total Tasks&lt;/h5&gt;  
+          &lt;p class="card-text display-4"&gt;23&lt;/p&gt;  
+          &lt;a href="/task" class="btn btn-primary"&gt;View Tasks&lt;/a&gt;  
+        &lt;/div&gt;  
+      &lt;/div&gt;  
+    &lt;/div&gt;  
+    &lt;!-- Team Summary Card --&gt;  
+    &lt;div class="col-md-4"&gt;  
+      &lt;div class="card mb-4"&gt;  
+        &lt;div class="card-header"&gt;Team Summary&lt;/div&gt;  
+        &lt;div class="card-body"&gt;  
+          &lt;h5 class="card-title"&gt;Total Team Members&lt;/h5&gt;  
+          &lt;p class="card-text display-4"&gt;8&lt;/p&gt;  
+          &lt;a href="/team" class="btn btn-primary"&gt;View Team&lt;/a&gt;  
+        &lt;/div&gt;  
+      &lt;/div&gt;  
+    &lt;/div&gt;  
+  &lt;/div&gt;  
+
+  &lt;!-- Recent Activities Table --&gt;  
+  &lt;div class="row"&gt;  
+    &lt;div class="col-md-12"&gt;  
+      &lt;div class="card"&gt;  
+        &lt;div class="card-header"&gt;Recent Activities&lt;/div&gt;  
+        &lt;div class="card-body"&gt;  
+          &lt;table class="table table-hover"&gt;  
+            &lt;thead&gt;  
+              &lt;tr&gt;  
+                &lt;th scope="col"&gt;Activity&lt;/th&gt;  
+                &lt;th scope="col"&gt;Project&lt;/th&gt;  
+                &lt;th scope="col"&gt;Date&lt;/th&gt;  
+              &lt;/tr&gt;  
+            &lt;/thead&gt;  
+            &lt;tbody&gt;  
+              &lt;tr&gt;  
+                &lt;td&gt;Task "Design Mockups" completed by John Doe&lt;/td&gt;  
+                &lt;td&gt;Project Alpha&lt;/td&gt;  
+                &lt;td&gt;2023-09-20&lt;/td&gt;  
+              &lt;/tr&gt;  
+              &lt;tr&gt;  
+                &lt;td&gt;New task "API Integration" assigned to Jane Smith&lt;/td&gt;  
+                &lt;td&gt;Project Beta&lt;/td&gt;  
+                &lt;td&gt;2023-09-19&lt;/td&gt;  
+              &lt;/tr&gt;  
+              &lt;tr&gt;  
+                &lt;td&gt;Team meeting scheduled&lt;/td&gt;  
+                &lt;td&gt;All Projects&lt;/td&gt;  
+                &lt;td&gt;2023-09-18&lt;/td&gt;  
+              &lt;/tr&gt;  
+            &lt;/tbody&gt;  
+          &lt;/table&gt;  
+        &lt;/div&gt;  
+      &lt;/div&gt;  
+    &lt;/div&gt;  
+  &lt;/div&gt;  
+&lt;/div&gt;  
+  </span><span class="token template-punctuation string">`</span></span>  
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+   
+<span class="token keyword module keyword-export">export</span> <span class="token keyword keyword-const">const</span> mainModule <span class="token operator">=</span> dashboardModule<span class="token punctuation">.</span><span class="token property-access">name</span><span class="token punctuation">;</span>  
+</code></pre><p>Repeat similar steps for the <code>project</code>, <code>task</code>, and <code>team</code> micro front-ends.</p>
+<h3 id="5-serve-and-run-the-application">5. Serve and Run the Application </h3>
+<h4 id="serve-micro-front-ends">Serve Micro Front-Ends </h4>
+<p>Navigate to each micro front-end directory and build the application:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token builtin class-name">cd</span> navigation  
+<span class="token function">npm</span> run serve  
+<span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>/welcome  
+<span class="token function">npm</span> run serve  
+<span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>/dashboard  
+<span class="token function">npm</span> run serve  
+<span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>/projects
+<span class="token function">npm</span> run build
+<span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>/tasks
+<span class="token function">npm</span> run build
+<span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>/team  
+<span class="token function">npm</span> run build  
+<span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>  
+</code></pre><h4 id="run-the-root-config">Run the Root Config </h4>
+<p>Navigate to the root config directory and start the development server:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">npm</span> start  
+</code></pre><p>Open your browser and navigate to <code>http://localhost:9000</code>. You should see the root application loading the registered micro front-ends based on the routes. If clicking the navbar links does not open the microfrontends, don't worry, you will learn about routing in the next session:</p>
+<pre data-role="codeBlock" data-info="html" class="language-html html"><code>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>main</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nav</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>application</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@projectmgt/navigation<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>application</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>nav</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>route</span> <span class="token attr-name">default</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>application</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@projectmgt/welcome<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>application</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>route</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>route</span> <span class="token attr-name">path</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dashboard<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>application</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@projectmgt/dashboard<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>application</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>route</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>route</span> <span class="token attr-name">path</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>projects<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>application</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@projectmgt/projects<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>application</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>route</span><span class="token punctuation">&gt;</span></span>
+    ....
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>main</span><span class="token punctuation">&gt;</span></span>
+</code></pre><p>and update the <code>routeProvider</code> in each micro-frontend accordingly.</p>
+<h3 id="key-concepts">Key Concepts </h3>
+<h4 id="single-spa-root-config">Single-SPA Root Config </h4>
+<p>The root config is the entry point of your Single-SPA application. It orchestrates the loading, mounting, and unmounting of different micro front-ends based on the current route. For more details, refer to the <a href="https://single-spa.js.org/docs/configuration">Single-SPA root config documentation</a>.</p>
+<h4 id="micro-front-ends">Micro Front-Ends </h4>
+<p>Micro front-ends are individual applications that are integrated into the Single-SPA root config. Each micro front-end can be developed, tested, and deployed independently. For more information on creating micro front-ends, refer to the <a href="https://single-spa.js.org/docs/getting-started-overview/#applications">Single-SPA micro front-end documentation</a>.</p>
+<h4 id="shared-dependencies">Shared Dependencies </h4>
+<p>Shared dependencies are libraries or resources that are used by multiple micro front-ends. Loading these dependencies once and sharing them across the application reduces redundancy and improves performance. In this lab, we use Bootstrap for consistent styling and a mock API module to simulate backend API calls.</p>
+<h3 id="summary">Summary </h3>
+<p>In this session, you set up the development environment, created the base project with Single-SPA root config, and configured AngularJS micro front-ends. Additionally, you set up shared dependencies such as Bootstrap for consistent styling, a mock API module to simulate backend API calls, and built a basic UI for each micro front-end. Finally, you built and ran the application. You are now ready to proceed to the next session where you will implement core concepts such as routing, state management, and form handling.</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  </body></html>
