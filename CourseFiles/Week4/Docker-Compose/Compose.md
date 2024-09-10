@@ -288,17 +288,35 @@ networks:
 ### **Step 6: Inspecting Networks and Volumes**
 1. **Inspecting Docker Networks**:
 
+   Docker Compose creates all it's resources in an isolated environment. The network is named `<compose-directory>_<network-name>`. To find the name list all networks
+
+   ```shell
+   docker network ls
+   ```
+
+   Now inspect the network created by Docker Compose.
+
    ```bash
-   docker network inspect custom-network
+   docker network inspect <compose-directory>_custom-network
    ```
 
    Shows detailed information about the network connecting the services.
 
 2. **Inspecting Docker Volumes**:
 
-   ```bash
-   docker volume inspect db-data
+   Docker Compose creates all it's resources in an isolated environment. The volume is named `<compose-directory>_<volume-name>`. To find the name list all volumes
+
+   ```shell
+   docker volume ls
    ```
+
+   Now inspect the volume created by Docker Compose.
+
+   ```bash
+   docker volume inspect <compose-directory>_db-data
+   ```
+
+   
 
    Views information about the volume used by the SQLite database to persist data.
 
