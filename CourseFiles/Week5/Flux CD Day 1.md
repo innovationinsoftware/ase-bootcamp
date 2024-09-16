@@ -97,49 +97,54 @@ In this exercise, you will create Kubernetes deployment and service manifests fo
 
 3. **Create Kubernetes Deployment YAML for ExpressJS App**:  
 
-   ```yaml  
-      apiVersion: apps/v1  
-      kind: Deployment  
-      metadata:  
-      name: expressjs-backend  
-      namespace: default  
-      spec:  
-      replicas: 2  
-      selector:  
-         matchLabels:  
-            app: expressjs-backend  
-      template:  
-         metadata:  
-            labels:  
-            app: expressjs-backend  
-         spec:  
-            containers:  
-            - name: expressjs-backend  
-            image: <acr-name>.azurecr.io/fluxexamples/express-server:flux
-            ports:  
-            - containerPort: 4000  
-            imagePullSecrets:
-            - name: acr-secret
-   ```
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: expressjs-backend
+  namespace: default
+spec:
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  replicas: 5
+  selector:
+    matchLabels:
+      app: expressjs-backend
+  template:
+    metadata:
+      labels:
+        app: expressjs-backend
+    spec:
+      containers:
+      - name: expressjs-backend
+        image: asetrainer.azurecr.io/fluxexamples/express-server:flux
+        ports:
+        - containerPort: 4000
+      imagePullSecrets:
+      - name: acr-secret
+```
 
 4. **Create Kubernetes Service YAML for ExpressJS App**:  
 
    The service manifest `<repository>/service.yaml` defines how to expose your application to other services within the cluster or to external clients. It creates a stable endpoint (a DNS name) for accessing the pods running your application.
 
-   ```yaml  
-   apiVersion: v1  
-   kind: Service  
-   metadata:  
-     name: expressjs-backend  
-     namespace: default  
-   spec:  
-     selector:  
-       app: expressjs-backend  
-     ports:  
-       - protocol: TCP  
-         port: 80  
-         targetPort: 4000  
-   ```
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: expressjs-backend
+  namespace: default
+spec:
+  selector:
+    app: expressjs-backend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 4000
+```
 
 5. **Commit and Push Manifests to Git Repository**:  
 
