@@ -55,6 +55,7 @@ In this exercise, you will install the FluxCD CLI and bootstrap FluxCD on your K
    - Run the following as one command.
    ```sh  
    flux bootstrap github \  
+     --token-auth \
      --owner=<github-username> \  
      --repository=<repository-name> \  
      --branch=main \  
