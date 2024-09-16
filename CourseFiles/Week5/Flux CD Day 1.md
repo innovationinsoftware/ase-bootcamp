@@ -1,7 +1,7 @@
 ### Practical Exercises in Setting Up Continuous Deployment  
 
 #### Exercise Overview  
-In this series of exercises, you will set up continuous deployment for an ExpressJS backend application using FluxCD. You will learn how to install and configure FluxCD, create and deploy a sample application, update the application, monitor the deployment, manage secrets, implement rolling updates, and scale the application.  
+In this series of exercises, you will set up continuous deployment for an ExpressJS backend application using FluxCD. You will learn how to install and configure FluxCD, create and deploy a sample application, update the application, implement rolling updates, and scale the application.  
 
 ---
 
@@ -222,4 +222,4 @@ In this exercise, you will scale the ExpressJS backend application by updating t
 ---
 
 
-These detailed exercises provide a comprehensive guide for setting up continuous deployment for an ExpressJS backend application using FluxCD, including installation, deployment, updates, monitoring, secrets management, rolling updates and scaling.
+These detailed exercises provide a comprehensive guide for setting up continuous deployment for an ExpressJS backend application using FluxCD, including installation, deployment, updates, rolling updates and scaling.
