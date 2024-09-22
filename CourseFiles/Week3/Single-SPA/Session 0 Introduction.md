@@ -1,14 +1,14 @@
-# Lab Exercise: Implement and Manage Micro Front-End Applications Using Single-SPA and AngularJS  
+# Lab Exercise: Implement and Manage Micro Front-End Applications Using Single-SPA and Angular 
   
 ## Introduction (15 minutes)  
   
 ### Objective  
-The primary objective of this lab exercise is to empower you with the skills to implement and manage micro front-end applications using Single-SPA and AngularJS. By the end of this lab, you will have built a functional Project Management Tool that integrates multiple micro front-ends into a single cohesive application. This tool will leverage shared dependencies such as UI frameworks and mock API modules to provide a seamless development experience.  
+The primary objective of this lab exercise is to empower you with the skills to implement and manage micro front-end applications using Single-SPA and Angular. By the end of this lab, you will have built a functional Project Management Tool that integrates multiple micro front-ends into a single cohesive application. This tool will leverage shared dependencies such as UI frameworks and mock API modules to provide a seamless development experience.  
   
 ### Prerequisites  
 Before starting this lab, you should have:  
-- Basic knowledge of AngularJS  
-- Understanding of JavaScript and web development fundamentals  
+- Basic knowledge of Angular  
+- Understanding of JavaScript/TypeScript and web development fundamentals  
 - Familiarity with Node.js and npm (Node Package Manager)  
   
 ### Overview of Micro Front-End Architecture  
@@ -33,8 +33,8 @@ A Single-SPA application typically consists of the following components:
      import { registerApplication, start } from 'single-spa';  
   
      registerApplication(  
-       'app1',  
-       () => import('app1/main.js'),  
+       '@org/app1',  
+       () => System.import("@org/app1"),  
        location => location.pathname.startsWith('/app1')  
      );  
   
@@ -42,35 +42,35 @@ A Single-SPA application typically consists of the following components:
      ```  
   
 2. **Micro Front-Ends**:  
-   - These are the individual applications that are integrated into the Single-SPA application. Each micro front-end can be developed using different frameworks and libraries (e.g., AngularJS, React, Vue).  
+   - These are the individual applications that are integrated into the Single-SPA application. Each micro front-end can be developed using different frameworks and libraries (e.g., Angular, React, Vue).  
    - Example:  
-     ```javascript  
-     // src/main.js for an AngularJS micro front-end  
-     import { start } from 'single-spa-angularjs';  
-     import angular from 'angular';  
-     import './app.module';  
+      ```javascript  
+      // src/main.single-spa.ts for an Angular micro front-end  
+      const lifecycles = singleSpaAngular({
+         bootstrapFunction: singleSpaProps => {
+            singleSpaPropsSubject.next(singleSpaProps);
+
+            const options = {
+               providers: [
+                  { provide: APP_BASE_HREF, useValue: '/' },
+                  getSingleSpaExtraProviders(),
+                  provideRouter([{ path: '**', component: EmptyRouteComponent }])
+               ],
+            };
+
+            return bootstrapApplication(AppComponent, options);
+         },
+         template: '<app1-root />',
+         Router,
+         NavigationStart,
+         NgZone,
+      });
+
+      export const bootstrap = lifecycles.bootstrap;
+      export const mount = lifecycles.mount;
+      export const unmount = lifecycles.unmount;
+      ```  
   
-     start({  
-       angular,  
-       domElementGetter: () => document.getElementById('app1'),  
-       mainAngularModule: 'app1',  
-       uiRouter: true,  
-     });  
-     ```  
-  
-3. **Shared Dependencies**:  
-   - Shared dependencies are libraries or resources that are used by multiple micro front-ends. These can be loaded once and shared across the entire application to reduce redundancy and improve performance. In this lab, we will use:  
-     - **UI Frameworks**: Such as Bootstrap or Tailwind CSS for consistent styling across micro front-ends.  
-     - **Mock API Module**: For simulating backend API calls during development.  
-   - Example:  
-     ```javascript  
-     // root-config/src/index.js  
-     import 'zone.js';  
-     import 'angular';  
-     import 'angular-ui-router';  
-     import 'bootstrap/dist/css/bootstrap.min.css';  
-     import './mock-api'; // Mock API module  
-     ```  
   
 ### Benefits of Using Single-SPA  
 - **Independent Deployment**: Each micro front-end can be deployed independently, allowing for faster and more frequent releases.  
@@ -117,7 +117,7 @@ The Project Management Tool will be built using a micro front-end architecture p
   
 
 ### Summary  
-In this lab, you will gain hands-on experience with advanced concepts in micro front-end development using Single-SPA and AngularJS. You will build a fully functional Project Management Tool, applying techniques such as routing, state management, form handling, API integration, inter-application communication, and error handling. By the end of this lab, you will have a deeper understanding of how to architect and manage complex web applications using micro front-end architecture.  
+In this lab, you will gain hands-on experience with advanced concepts in micro front-end development using Single-SPA and Angular. You will build a fully functional Project Management Tool, applying techniques such as routing, state management, form handling, API integration, inter-application communication, and error handling. By the end of this lab, you will have a deeper understanding of how to architect and manage complex web applications using micro front-end architecture.  
   
 ---  
   

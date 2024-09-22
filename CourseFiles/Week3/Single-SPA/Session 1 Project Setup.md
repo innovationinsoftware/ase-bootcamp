@@ -1,38 +1,57 @@
-## Session 1: Single-SPA Angular JS Project Setup (60 minutes)  
+## Session 1: Single-SPA Angular Project Setup (60 minutes)  
 
 ### 1. Environment Setup  
 
 #### Install Node.js and Angular CLI  
-To start with, you need to have Node.js and npm installed on your machine. You can download and install Node.js from [Node.js official website](https://nodejs.org/).  
+To start with, you need to have Node.js and npm installed on your machine. You can download and install Node.js from [Node.js official website](https://nodejs.org/) (v20.* recommended).  
 
 Next, install the Angular CLI globally using npm:  
 ```bash  
 npm install -g @angular/cli  
 ```
 
-#### Clone the Single-spa-angularJS Starter
-Single-SPA provides a starter project to help if you want to update legacy apps that use AngularJS. This serves as a starting point that you can then build on top of using the [Recommended Setup](https://single-spa.js.org/docs/recommended-setup)
+#### Clone the Starter Repository
+
+We will use a starter project that contains the base configuration and six micro front-ends:
+
+- dashboard
+- navbar
+- projects
+- tasks
+- team
+- welcome
+
+These are located in the `projectmgt` folder, and the root Single-SPA project is in the root directory.
+
+Navigate into the project directory:
 ```bash  
-git clone https://github.com/mbarbosasan/single-spa-angularjs-starter.git
+cd lab-angular
 ```
+### 2. Overview of the Base Project
 
- If you want to add single-spa to an existing AngularJS project, you can follow instructions on this [webpage](https://single-spa.js.org/docs/ecosystem-angularjs). However, using the starter project will save a lot of time. 
+Since the project is already set up, we don’t need to initialize or create new applications. Instead, let's focus on the key files that make up the project structure:
 
-### 2. Create Base Project  
+#### Project Structure
 
-#### Initialize a New Single-SPA Root Config  
-Rename the starter project directory for your project and navigate into it:  
-```bash  
-mv single-spa-angularjs-starter project-management-tool  
-cd project-management-tool  
-```
-Now rename the name of the organisation used in the root-config:
+Here is a breakdown of the important files and folders in the base project:
 
-- Rename `src/my-org-root-config.js` to `src/projectmgt-config.js`
-- Open `webpack.config.js`
-- Rename orgName from "my-org" to "projectmgt"
-- Rename "@my-org/root-config" to "@projectmgt/root-config" in the `package.json` file
-- Rename all instances of "my-org" to "projectmgt" in `src/index.ejs` and `src/microfrontend-layout.html`   
+- **`projectmgt/`**: This folder contains the micro front-ends.
+  - Each micro front-end (e.g., `dashboard`, `navbar`, `projects`) has its own Angular standalone application.
+  - Inside each micro front-end, you'll find:
+    - **`src/app`**: Contains the main component files for the micro front-end.
+    - **`angular.json`**: Angular configuration specific to the micro front-end.
+    - **`main.single-spa.ts`**: Entry point file used to integrate the Angular application with Single-SPA.
+
+- **`src/`**: This folder contains the Single-SPA root configuration.
+  - **`src/index.ejs`**: This is the HTML template that serves as the entry point for the application. It defines where the micro front-ends will be loaded.
+  - **`src/projectmgt-root-config.js`**: This is the configuration file that registers each micro front-end with Single-SPA.
+  - **`src/microfrontend-layout.html`**: This file defines the layout structure for the Single-SPA application, specifying where each micro front-end should be loaded.
+
+#### Root Files
+
+- **`package.json`**: Lists the dependencies and scripts for managing the root project.
+- **`webpack.config.js`**: Handles the Webpack configuration for the Single-SPA project, including the bundling and loading of micro front-ends.
+
 
 Install the dependencies:  
 ```bash  
@@ -47,31 +66,15 @@ For the purpose of this exercise, we will use Bootstrap for styling. You can add
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 ```
 
-The `root-config.js` file will register and construct the AngularJS micro front-end applications that you will define in the SystemJS import map file in the `index.ejs` file. The `microfrontend-layout.html` contains the Single-SPA layout definition for your application. You can learn more about layout definitions [here](https://single-spa.js.org/docs/layout-definition/).  
+The `root-config.js` file will register and construct the Angular micro front-end applications that you will define in the SystemJS import map file in the `index.ejs` file. The `microfrontend-layout.html` contains the Single-SPA layout definition for your application. You can learn more about layout definitions [here](https://single-spa.js.org/docs/layout-definition/).  
 
 For additional reading on setting up the root config, refer to the [Single-SPA documentation](https://single-spa.js.org/docs/getting-started-overview/).
 
-#### Create AngularJS Micro Front-Ends  
-- Create copies of the `angularjs` micro-frontend folder named:
-
-  - navbar
-
-  - welcome
-
-  - dashboard
-
-  - projects
-
-  - tasks
-
-  - team  
-- Navigate into each microfrontend directory and run ```npm install```
-  
 
 ### 3. Configure Single-SPA  
 
-#### Integrate AngularJS Applications into the Single-SPA Root Config  
-Open the `projectmanagement/src/index.ejs` file and register your micro front-ends using the SystemJS import map. Each micro frontend registration references the webpack bundle located at the address where the frontend is running:  
+#### Integrate Angular Applications into the Single-SPA Root Config  
+Open the `lab-angular/src/index.ejs` file and register your micro front-ends using the SystemJS import map. Each micro frontend registration references the webpack bundle located at the address where the frontend is running:  
 
 ```html  
     <% if (isLocal) { %>
@@ -79,11 +82,13 @@ Open the `projectmanagement/src/index.ejs` file and register your micro front-en
     {
       "imports": {
         "@projectmgt/root-config": "//localhost:9000/projectmgt-root-config.js",
-        "@projectmgt/navigation": "http://localhost:8080/main.js",
-        "@projectmgt/welcome": "http://localhost:8081/main.js",
-        "@projectmgt/dashboard": "http://localhost:8082/projectmgt-dashboard.js",
-        "@projectmgt/sharedstate": "http://localhost:8083/projectmgt-sharedstate.js",
-        "@projectmgt/projects": "http://localhost:8084/projectmgt-projects.js"
+        "@projectmgt/navigation": "//localhost:8080/main.js",
+        "@projectmgt/welcome": "//localhost:8081/main.js",
+        "@projectmgt/dashboard": "//localhost:8082/main.js",
+        "@projectmgt/sharedstate": "//localhost:8083/main.js",
+        "@projectmgt/projects": "//localhost:8084/main.js",
+        "@projectmgt/team": "//localhost:8085/main.js",
+        "@projectmgt/tasks": "//localhost:8086/main.js"
       }
     }
   </script>
@@ -96,13 +101,14 @@ For more information on application registration, refer to the [Single-SPA appli
 ### 4. Set Up the User Interface  
 
 #### Install UI Framework  
-Make sure you have added bootstrap or referenced the UI libraries of your choice in the `projectmanagement\src\index.ejs` file of the root project.
+Make sure you have added bootstrap or referenced the UI libraries of your choice in the `lab-angular\src\index.ejs` file of the root project.
 
 #### Create Navigation and Application Shell  
 
 **a.) Update the navbar microfrontend**
 
-In the `navbar` directory, create a new directory named `navigation` inside the `components` directory, create a new file named `navbar\src\components\navigation\navbar.component.html` and add the following code:  
+In the navbar micro front-end, update `src/app/app.component.ts`:  
+
 ```html 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">  
   <a class="navbar-brand" href="/">Project Management Tool</a>  
@@ -125,66 +131,31 @@ In the `navbar` directory, create a new directory named `navigation` inside the 
 </nav>  
 ```
 
-Create a new file named `navbar/src/components/navigation/navbar.component.js` and add the following code:
+Update `navbar/src/app/app.component.ts` with the following code:
 ```javascript
-import rootTemplate from "./navbar.component.html";
+import { Component, OnInit } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
-const navigationComponent =  {
-  template: rootTemplate,
-  controller: function () {
-    this.$onInit = function () {
-      console.log("Navigation component initialized");
-    };
-  },
-};
-
-export default navigationComponent;
+@Component({
+  selector: 'app-navbar',
+  standalone: true,
+  imports: [RouterOutlet],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css',
+})
+export class AppComponent implements OnInit {
+  ngOnInit(): void {
+    console.log('Navigation component initialized');
+  }
+}
 
 ```
 
-Update `navbar/src/components/components.all.js` to the following:
-```javascript
-import "./navigation/navbar.component";
-```
-
-Update `app.module.js` to the following:
-```javascript
-import ngRoute from "angular-route";
-import navigationComponent from "./components/navigation/navbar.component";
-
-const appAngular = angular.module("app", ["ngRoute"]);
-appAngular.component("navigation", navigationComponent);
 
 
-export default appAngular;
-```
+**b.) Add navigation to the lab-angular root application**
 
-Update `navbar/src/index.js` to the following code:
-```javascript
-import singleSpaAngularJS from "single-spa-angularjs";
-import angular from "angular";
-import appAngular from "./app.module";
-
-import "./components/components.all";
-import "../src/styles.global.css";
-
-const ngLifecycles = singleSpaAngularJS({
-  angular: angular,
-  mainAngularModule: "app",
-  ngRoute: true,
-  preserveGlobal: false,
-  template: "<navigation />",
-});
-
-export const bootstrap = ngLifecycles.bootstrap;
-export const mount = ngLifecycles.mount;
-export const unmount = ngLifecycles.unmount;
-
-```
-
-**b.) Add navigation to the projectmanagement root application**
-
-Open the `projectmanagement/src/microfrontend-layout.html` file and update the code layout definition to the following:
+Open the `lab-angular/src/microfrontend-layout.html` file and update the code layout definition to the following:
 
 ```html
   <main>
@@ -198,128 +169,114 @@ Open the `projectmanagement/src/microfrontend-layout.html` file and update the c
 ```
 
 #### Build the UI for Each Micro Front-End  
-For each micro front-end, create basic components to display some sample data. **Use your imagination or ChatGPT to generate the UI for the components in the frontend**. For example, in the `dashboard` micro front-end directory, create a new component `/src/components/dashboard/dashboard.component.js`:  
+For each micro front-end, create basic components to display some sample data. **Use your imagination or ChatGPT to generate the UI for the components in the frontend**. For example, in the `dashboard` micro front-end directory, create a new component `/dashboard/src/app/app.component.ts`:  
 ```javascript  
-import dashboardTemplate from "./dashboard.component.html";  
-import { storeInstance, actionsInstance } from '@projectmgt/sharedstate';  
-   
-angular.module("app").component("dashboard", {  
-  template: dashboardTemplate,  
-  controller: function() {  
-    this.projects = [];  
-    this.tasks = [];  
-    this.team = [];  
-    this.unsubscribe = null;  
-  
-    this.$onInit = () => {  
-      this.unsubscribe = storeInstance.subscribe(() => {  
-        const state = storeInstance.getState();  
-        this.projects = state.projects;  
-        this.tasks = state.tasks;  
-        this.team = state.team;  
-      });  
-  
-      storeInstance.dispatch(actionsInstance.setProjects([{ id: 1, name: 'Project Alpha' }]));  
-      storeInstance.dispatch(actionsInstance.setTasks([{ id: 1, name: 'Task 1' }]));  
-      storeInstance.dispatch(actionsInstance.setTeam([{ id: 1, name: 'John Doe' }]));  
-    };  
-  
-    this.$onDestroy = () => {  
-      if (this.unsubscribe) {  
-        this.unsubscribe();  
-      }  
-    };  
-  },  
-  controllerAs: 'vm'  
-});  
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { SharedDataService } from './shared-data.service';
+
+@Component({
+  selector: 'app-dashboard',
+  standalone: true,
+  imports: [RouterOutlet],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css',
+})
+export class AppComponent {
+  projects: any[] = [];
+  tasks: any[] = [];
+  team: any[] = [];
+
+  constructor(private sharedDataService: SharedDataService) {}
+
+  ngOnInit() {
+    console.log('Dashboard component initialized');
+    this.sharedDataService.projects$.subscribe((projects) => (this.projects = projects));
+    this.sharedDataService.tasks$.subscribe((tasks) => (this.tasks = tasks));
+    this.sharedDataService.team$.subscribe((team) => (this.team = team));
+  }
+}
+
 ```
 
-Create a new view for the dashboard component `/src/components/dashboard/dashboard.component.html` and add the following code:
+Create a new view for the dashboard component `/dashboard/src/app/app.component.html` and add the following code:
 
 ```html
-<div class="container mt-4">  
-  <div class="row">  
-    <!-- Project Summary Card -->  
-    <div class="col-md-4">  
-      <div class="card mb-4">  
-        <div class="card-header">Project Summary</div>  
-        <div class="card-body">  
-          <h5 class="card-title">Total Projects</h5>  
-          <p class="card-text display-4">5</p>  
-          <a href="/project" class="btn btn-primary">View Projects</a>  
-        </div>  
-      </div>  
-    </div>  
-    <!-- Task Summary Card -->  
-    <div class="col-md-4">  
-      <div class="card mb-4">  
-        <div class="card-header">Task Summary</div>  
-        <div class="card-body">  
-          <h5 class="card-title">Total Tasks</h5>  
-          <p class="card-text display-4">23</p>  
-          <a href="/task" class="btn btn-primary">View Tasks</a>  
-        </div>  
-      </div>  
-    </div>  
-    <!-- Team Summary Card -->  
-    <div class="col-md-4">  
-      <div class="card mb-4">  
-        <div class="card-header">Team Summary</div>  
-        <div class="card-body">  
-          <h5 class="card-title">Total Team Members</h5>  
-          <p class="card-text display-4">8</p>  
-          <a href="/team" class="btn btn-primary">View Team</a>  
-        </div>  
-      </div>  
-    </div>  
-  </div>  
+<div class="container mt-4">
+  <div class="row">
+    <!-- Project Summary Card -->
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <div class="card-header">Project Summary</div>
+        <div class="card-body">
+          <h5 class="card-title">Total Projects</h5>
+          <p class="card-text display-4">{{ projects.length }}</p>
+          <a href="/projects" class="btn btn-primary">View Projects</a>
+        </div>
+      </div>
+    </div>
+    <!-- Task Summary Card -->
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <div class="card-header">Task Summary</div>
+        <div class="card-body">
+          <h5 class="card-title">Total Tasks</h5>
+          <p class="card-text display-4">{{ tasks.length }}</p>
+          <a href="/tasks" class="btn btn-primary">View Tasks</a>
+        </div>
+      </div>
+    </div>
+    <!-- Team Summary Card -->
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <div class="card-header">Team Summary</div>
+        <div class="card-body">
+          <h5 class="card-title">Total Team Members</h5>
+          <p class="card-text display-4">{{ team.length }}</p>
+          <a href="/team" class="btn btn-primary">View Team</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <!-- Recent Activities Table -->  
-  <div class="row">  
-    <div class="col-md-12">  
-      <div class="card">  
-        <div class="card-header">Recent Activities</div>  
-        <div class="card-body">  
-          <table class="table table-hover">  
-            <thead>  
-              <tr>  
-                <th scope="col">Activity</th>  
-                <th scope="col">Project</th>  
-                <th scope="col">Date</th>  
-              </tr>  
-            </thead>  
-            <tbody>  
-              <tr>  
-                <td>Task "Design Mockups" completed by John Doe</td>  
-                <td>Project Alpha</td>  
-                <td>2023-09-20</td>  
-              </tr>  
-              <tr>  
-                <td>New task "API Integration" assigned to Jane Smith</td>  
-                <td>Project Beta</td>  
-                <td>2023-09-19</td>  
-              </tr>  
-              <tr>  
-                <td>Team meeting scheduled</td>  
-                <td>All Projects</td>  
-                <td>2023-09-18</td>  
-              </tr>  
-            </tbody>  
-          </table>  
-        </div>  
-      </div>  
-    </div>  
-  </div>  
-</div> 
+  <!-- Recent Activities Table -->
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">Recent Activities</div>
+        <div class="card-body">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Activity</th>
+                <th scope="col">Project</th>
+                <th scope="col">Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Task "Design Mockups" completed by John Doe</td>
+                <td>Project Alpha</td>
+                <td>2023-09-20</td>
+              </tr>
+              <tr>
+                <td>New task "API Integration" assigned to Jane Smith</td>
+                <td>Project Beta</td>
+                <td>2023-09-19</td>
+              </tr>
+              <tr>
+                <td>Team meeting scheduled</td>
+                <td>All Projects</td>
+                <td>2023-09-18</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 ```
-
-Next update the dashboard component in `src/components/components.all.js` by adding the following import statement:
-
-```javascript
-import "./dashboard/dashboard.component";
-```
-
-**NOTE: The components that you import in `src/components/components.all.js` must exist in the `src/components` directory**
 
 Repeat similar steps for the `project`, `task`, and `team` micro front-ends and create the components and their views. Use your imagination in creating these components.
 
@@ -328,20 +285,22 @@ Repeat similar steps for the `project`, `task`, and `team` micro front-ends and 
 #### Serve Micro Front-Ends  
 Navigate to each micro front-end directory and build the application:  
 ```bash  
-cd navigation  
-npm run serve  
+cd navbar  
+npm run start  
 cd ../welcome  
-npm run serve  
+npm run start  
 cd ../dashboard  
-npm run serve  
+npm run start  
 cd ../projects
-npm run build
+npm run start
 cd ../tasks
-npm run build
+npm run start
 cd ../team  
-npm run build  
+npm run start  
 cd ..  
 ```
+
+Or use the script `npm-run-start-for-all.ps1` in `projectmgt` folder 
 
 #### Run the Root Config  
 Navigate to the root config directory and start the development server:  
@@ -383,4 +342,4 @@ Micro front-ends are individual applications that are integrated into the Single
 Shared dependencies are libraries or resources that are used by multiple micro front-ends. Loading these dependencies once and sharing them across the application reduces redundancy and improves performance. In this lab, we use Bootstrap for consistent styling and a mock API module to simulate backend API calls.  
 
 ### Summary  
-In this session, you set up the development environment, created the base project with Single-SPA root config, and configured AngularJS micro front-ends. Additionally, you set up shared dependencies such as Bootstrap for consistent styling, a mock API module to simulate backend API calls, and built a basic UI for each micro front-end. Finally, you built and ran the application. You are now ready to proceed to the next session where you will implement core concepts such as routing, state management, and form handling.  
+In this session, you set up the development environment, created the base project with Single-SPA root config, and configured Angular micro front-ends. Additionally, you set up shared dependencies such as Bootstrap for consistent styling, a mock API module to simulate backend API calls, and built a basic UI for each micro front-end. Finally, you built and ran the application. You are now ready to proceed to the next session where you will implement core concepts such as routing, state management, and form handling.  
