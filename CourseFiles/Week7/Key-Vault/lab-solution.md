@@ -566,44 +566,7 @@ az keyvault secret restore --vault-name <your-key-vault-name> --file <path-to-ba
 
 ---
 
-### **Enable Log Categories: Request and Errors**
-
-You can enable additional log categories such as **Request** and **Errors** for more granular logging.
-
-**Update the diagnostic settings to include `Request` and `Errors` log categories**:
-
-```bash
-az monitor diagnostic-settings update `
---resource "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>" `
---name "keyvault-diagnostics" `
---logs '[{"category": "AuditEvent","enabled": true},{"category": "Request","enabled": true},{"category": "Errors","enabled": true}]' `
- --workspace "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.OperationalInsights/workspaces/myWorkspace"
-```
-
-- This updates the diagnostic settings to capture **Request** and **Errors** categories.
-
-4. **Perform actions like creating or deleting keys** to generate new log entries.
-
----
-
-### **Refine Your Query**
-
-To focus on newly enabled log categories (`Request` and `Errors`), refine your query to include them:
-
-**Example Query for Requests and Errors**:
-
-```kusto
-AzureDiagnostics
-| where ResourceType == "VAULTS" and (Category == "AuditEvent" or Category == "Request" or Category == "Errors")
-| project TimeGenerated, OperationName, ResultDescription, CallerIPAddress, Category, Resource
-| order by TimeGenerated desc
-```
-
-- This query captures logs across multiple categories (`AuditEvent`, `Request`, and `Errors`), giving you insights into various types of operations.
-
----
-
-### **Review and Update Diagnostic Settings**
+### Review and Update Diagnostic Settings**
 
 Regularly review and update your diagnostic settings to ensure you're capturing the necessary logs for comprehensive auditing. You can always add or remove log categories using the `update` command as shown above.
 
