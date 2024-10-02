@@ -125,9 +125,7 @@ This will set up your applications with the correct configuration and start pull
 
 ### Step 15: Set up frontend routing
 
-Set anything 'localhost:3000' to the public IP and port of your express-server service
-
-Set anything 'localhost:5000' to the public IP and port of your flask-api service
+On line 9 and 10 of angular-app/src/app/api.service.ts, change 'localhost' to the IPs of your load balancer services. This allows the frontend to talk to the backends.
 
 ### Step 16: Redeploy your services
 
