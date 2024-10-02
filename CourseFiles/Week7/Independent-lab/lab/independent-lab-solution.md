@@ -58,7 +58,7 @@ You’ll now build your Docker images and tag them with a version for clarity.
 
 ```bash
 export IMAGE_TAG=v1  # Set a unique tag for your images
-sudo IMAGE_TAG=v1 docker-compose build --no-cache  # Build the images
+IMAGE_TAG=v1 docker-compose build --no-cache  # Build the images
 ```
 
 ### Step 8: Push Images to ACR
