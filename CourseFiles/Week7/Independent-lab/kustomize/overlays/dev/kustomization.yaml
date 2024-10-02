@@ -1,0 +1,60 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# Define the base directory to inherit resources from
+bases:
+  - ../../base/frontend
+  - ../../base/backend
+  - ../../base/database
+  - ../../base/kafka
+  - ../../base/zookeeper
+
+# Common Labels
+commonLabels:
+  environment: dev
+
+# Namespace
+namespace: dev
+
+# Resources to apply specific changes or additions for the dev environment
+patchesStrategicMerge:
+# Example patch for the frontend configuration
+- |
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: solution-archi-connect-frontend
+  spec:
+    replicas: 2
+
+- |
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: solution-archi-manage-frontend
+  spec:
+    replicas: 2
+
+# Additional Configuration or Secrets for the dev environment
+configMapGenerator:
+- name: custom-config
+  literals:
+    - LOG_LEVEL=debug
+
+# Add custom secret for dev environment
+secretGenerator:
+- name: custom-secret
+  literals:
+    - DB_USER=devuser
+    - DB_PASSWORD=devpassword
+
+# Additional Image Tags specific to the dev environment
+images:
+- name: solution-archi-connect-frontend
+  newTag: dev
+- name: solution-archi-manage-frontend
+  newTag: dev
+
+# Add additional resources or overlays if needed
+resources:
+  # Add any additional yaml files specific to dev environment
