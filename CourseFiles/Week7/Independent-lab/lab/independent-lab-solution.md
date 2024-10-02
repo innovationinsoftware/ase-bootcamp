@@ -2,12 +2,6 @@
 1. **Install Docker**  
    Docker is required to build and manage your container images. Install Docker by following the official [Docker documentation](https://docs.docker.com/get-docker/).
 
-2. **Install Kustomize**  
-   Kustomize allows you to customize Kubernetes YAML configurations. Install it by running:
-   ```bash
-   sudo apt-get install -y kustomize  # For Ubuntu/Debian
-   ```
-
 ### Step 1: Create an Azure Resource Group
 A resource group is a logical container where all your Azure resources (AKS, ACR, etc.) will be grouped.
 
