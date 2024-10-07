@@ -1,3 +1,5 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
 resources:
 - frontend/
 - backend/
@@ -18,5 +20,4 @@ images:
   newTag: v4
 - name: myacr121843.azurecr.io/optum-azure-capstone-angular-app
   newTag: v4
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
+
