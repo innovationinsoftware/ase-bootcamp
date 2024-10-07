@@ -2,12 +2,6 @@
 1. **Install Docker**  
    Docker is required to build and manage your container images. Install Docker by following the official [Docker documentation](https://docs.docker.com/get-docker/).
 
-2. **Install Kustomize**  
-   Kustomize allows you to customize Kubernetes YAML configurations. Install it by running:
-   ```bash
-   sudo apt-get install -y kustomize  # For Ubuntu/Debian
-   ```
-
 ### Step 1: Create an Azure Resource Group
 A resource group is a logical container where all your Azure resources (AKS, ACR, etc.) will be grouped.
 
@@ -64,7 +58,7 @@ You’ll now build your Docker images and tag them with a version for clarity.
 
 ```bash
 export IMAGE_TAG=v1  # Set a unique tag for your images
-sudo IMAGE_TAG=v1 docker-compose build --no-cache  # Build the images
+IMAGE_TAG=v1 docker-compose build --no-cache  # Build the images
 ```
 
 ### Step 8: Push Images to ACR
@@ -131,9 +125,7 @@ This will set up your applications with the correct configuration and start pull
 
 ### Step 15: Set up frontend routing
 
-Set anything 'localhost:3000' to the public IP and port of your express-server service
-
-Set anything 'localhost:5000' to the public IP and port of your flask-api service
+On line 9 and 10 of angular-app/src/app/api.service.ts, change 'localhost' to the IPs of your load balancer services. This allows the frontend to talk to the backends.
 
 ### Step 16: Redeploy your services
 
